@@ -5,6 +5,9 @@ using namespace std;
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    /*
+    Muhammad Ghozy Abdurrahman
+    Athallah Fairuz Javier
+    */
     return 0;
 }
