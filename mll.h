@@ -23,13 +23,13 @@ struct ListMahasiswa {
 };
 
 void createList(ListMahasiswa &L);
-adrMahasiswa createElemenMahasiswa(elemMahasiswa);
-adrTugas createElemenTugas(elemTugas);
+adrMahasiswa createElemenMahasiswa(elemMahasiswa x);
+adrTugas createElemenTugas(elemTugas x);
 void addMahasiswa(ListMahasiswa &L, adrMahasiswa P); //1
 void showMahasiswa(ListMahasiswa L); //2
 void deleteMahasiswa(ListMahasiswa &L, adrMahasiswa P); //3
 void searchMahasiswa(ListMahasiswa L, adrMahasiswa P); //4
-void addTugas(ListMahasiswa &L, adrTugas P); //5
+void addTugas(ListMahasiswa &L, adrTugas P, adrMahasiswa Q); //5
 void connectTugas(ListMahasiswa &L, adrTugas P, adrMahasiswa Q); //6
 void showAll(ListMahasiswa L); //7
 void searchTugas(ListMahasiswa L, adrTugas P); //8
