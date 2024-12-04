@@ -8,14 +8,22 @@ using namespace std;
 
 typedef struct elemMahasiswa *adrMahasiswa;
 typedef struct elemTugas *adrTugas;
-struct elemMahasiswa {
+typedef struct mahasiswa infotypeMhs;
+typedef struct tugas infotypeTug;
+struct mahasiswa{
     string nama, kelas, jurusan, gender;
     int angkatan;
+};
+struct tugas{
+    string matkul, deadline, kodeMatkul;
+};
+struct elemMahasiswa {
+    infotypeMhs info;
     adrMahasiswa nextMhs;
     adrTugas nextTug;
 };
 struct elemTugas {
-    string matkul, deadline, kodeMatkul;
+    infotypeTug info;
     adrTugas nextTug;
 };
 struct ListMahasiswa {
@@ -23,8 +31,8 @@ struct ListMahasiswa {
 };
 
 void createList(ListMahasiswa &L);
-adrMahasiswa createElemenMahasiswa(elemMahasiswa x);
-adrTugas createElemenTugas(elemTugas x);
+adrMahasiswa createElemenMahasiswa(infotypeMhs x);
+adrTugas createElemenTugas(infotypeTug x);
 void addMahasiswa(ListMahasiswa &L, adrMahasiswa P); //1
 void showMahasiswa(ListMahasiswa L); //2
 void deleteMahasiswa(ListMahasiswa &L, adrMahasiswa P); //3

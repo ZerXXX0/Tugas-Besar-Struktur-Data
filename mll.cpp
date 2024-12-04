@@ -6,14 +6,18 @@ using namespace std;
 void createList(ListMahasiswa &L) {
     first(L) = nullptr;
 }
-adrMahasiswa createElemenMahasiswa(elemMahasiswa x) {
+adrMahasiswa createElemenMahasiswa(infotypeMhs x) {
     adrMahasiswa P = new elemMahasiswa;
     info(P) = x;
+    nextMhs(P) = nullptr;
+    return P;
     // ask this part, how tf do i do ts with that header structure
 }
-adrTugas createElemenTugas(elemTugas x) {
+adrTugas createElemenTugas(infotypeTug x) {
     adrTugas P = new elemTugas;
     info(P) = x;
+    nextTug(P) = nullptr;
+    return P;
     // this too lil nigga
 }
 void addMahasiswa(ListMahasiswa &L, adrMahasiswa P) {
