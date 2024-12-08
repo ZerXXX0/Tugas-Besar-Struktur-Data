@@ -36,9 +36,9 @@ adrTugas createElemenTugas(infotypeTug x);
 void addMahasiswa(ListMahasiswa &L, adrMahasiswa P); //1
 void showMahasiswa(ListMahasiswa L); //2
 void deleteMahasiswa(ListMahasiswa &L, adrMahasiswa P); //3
-void searchMahasiswa(ListMahasiswa L, adrMahasiswa P); //4
+adrMahasiswa searchMahasiswa(ListMahasiswa L, string name); //4
 void addTugas(ListMahasiswa &L, adrTugas P, adrMahasiswa Q); //5
-void connectTugas(ListMahasiswa &L, adrTugas P, adrMahasiswa Q); //6
+//void connectTugas(ListMahasiswa &L, adrTugas P, adrMahasiswa Q); //6
 void showAll(ListMahasiswa L); //7
 void searchTugas(ListMahasiswa L, adrTugas P); //8
 void deleteTugas(ListMahasiswa &L, adrTugas P, adrMahasiswa Q); //9

@@ -11,14 +11,12 @@ adrMahasiswa createElemenMahasiswa(infotypeMhs x) {
     info(P) = x;
     nextMhs(P) = nullptr;
     return P;
-    // ask this part, how tf do i do ts with that header structure
 }
 adrTugas createElemenTugas(infotypeTug x) {
     adrTugas P = new elemTugas;
     info(P) = x;
     nextTug(P) = nullptr;
     return P;
-    // this too lil nigga
 }
 void addMahasiswa(ListMahasiswa &L, adrMahasiswa P) {
     //1
@@ -28,9 +26,24 @@ void addMahasiswa(ListMahasiswa &L, adrMahasiswa P) {
     int input;
     cin >> input;
     if (input == 1) {
-        //do dat insert first dawg
+        //insert first
+        if (first(L) != nullptr) {
+            nextMhs(P) = first(L);
+            first(L) = P;
+        } else {
+            first(L) = P;
+        }
     } else if (input == 2) {
-        //do dat insert last ya heard
+        //insert last
+        if (first(L) != nullptr) {
+            adrMahasiswa Q = first(L);
+            for (nextMhs(Q) != nullptr) {
+                Q = nextMhs(Q);
+            }
+            nextMhs(Q) = P;
+        } else {
+            first(L) = P;
+        }
     } else {
         cout << "Invalid choice" << endl;
     }
@@ -41,6 +54,11 @@ void showMahasiswa(ListMahasiswa L) {
     if (P!=nullptr) {
         while (P!=nullptr) {
             //outputtin dat data ting
+            cout << "Nama: " << info(P).nama << endl;
+            cout << "Kelas: " << info(P).kelas << endl;
+            cout << "Angkatan: " << info(P).angkatan << endl;
+            cout << "Jurusan: " << info(P).jurusan << endl;
+            cout << "Gender: " << info(P).gender << endl;
             P = nextMhs(P);
         }
     } else {
@@ -52,8 +70,11 @@ void deleteMahasiswa(ListMahasiswa &L, adrMahasiswa P){
     adrMahasiswa Q = first(L);
     if (Q!=nullptr) {
         while (Q!=nullptr) {
-             if (Q == P) {
-                // do dem deletin like u smokin dem opps
+             if (nextMhs(Q) == P) {
+                //Made it myself
+                nextMhs(Q) = nextMhs(nextMhs(Q));
+                Q = nextMhs(Q);
+                Q = nullptr;
                 break;
              }
              Q = nextMhs(Q);
@@ -62,13 +83,16 @@ void deleteMahasiswa(ListMahasiswa &L, adrMahasiswa P){
         cout << "No data shown" << endl;
     }
 }
-void searchMahasiswa(ListMahasiswa L, adrMahasiswa P){
+adrMahasiswa searchMahasiswa(ListMahasiswa L, string name){
     //4
     adrMahasiswa Q = first(L);
+    adrMahasiswa result = nullptr;
     if (Q!=nullptr) {
         while (Q!=nullptr) {
-             if (Q == P) {
+             if (info(Q).nama == name) {
                 // search dat shit circlin dem opps block
+                cout << "Mahasiswa " << name << " Exist" << endl;
+                result = Q;
                 break;
              }
              Q = nextMhs(Q);
@@ -76,15 +100,30 @@ void searchMahasiswa(ListMahasiswa L, adrMahasiswa P){
     } else {
         cout << "No data shown" << endl;
     }
+    return result;
 }
 void addTugas(ListMahasiswa &L, adrTugas P, adrMahasiswa Q) {
     //5
-    //man my brain aint brainin rn
+    //Whichever used, they be same
+    //For efficiency shit, just use ins first
+    //insert first
+    if (first(L) != nullptr){
+        nextMhs(P) = nextTug(Q);
+        nextTug(Q) = P;
+    } else {
+        cout << "List is empty" << endl;
+    }
+    //insert last
+    adrTugas R = nextTug(Q);
+    while(nextMhs(R)!=nullptr) {
+        R = nextMhs(R);
+    }
+    nextMhs(R) = P;
 }
-void connectTugas(ListMahasiswa &L, adrTugas P, adrMahasiswa Q) {
-    //6
-    //man fuck this
-}
+//void connectTugas(ListMahasiswa &L, adrTugas P, adrMahasiswa Q) {
+//    //6
+//    //man fuck this
+//}
 void showAll(ListMahasiswa L) {
     //7
 
