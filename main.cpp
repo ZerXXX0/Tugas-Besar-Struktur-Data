@@ -8,6 +8,8 @@ int main()
     /*
     Muhammad Ghozy Abdurrahman
     Athallah Fairuz Javier
+
+    Javier is here
     */
 
     //Variables declaration
