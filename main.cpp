@@ -10,6 +10,7 @@ int main()
     Athallah Fairuz Javier
 
     Javier is here
+    Ghozy is here
     */
 
     //Variables declaration
