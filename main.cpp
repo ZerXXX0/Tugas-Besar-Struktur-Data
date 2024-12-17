@@ -80,24 +80,68 @@ int main()
                 addTugas(L, Q, P);
                 break;
             case 3:
+                string name;
+                cout << "Enter Student's Name: ";
+                cin >> name >> endl;
+                adrMahasiswa P = searchMahasiswa(L, name);
+
                 deleteMahasiswa(L, P);
+
+                cout << "Student is deleted";
                 break;
             case 4:
                 showMahasiswa(L);
                 break;
             case 5:
-                searchMahasiswa(L, P);
+                string name;
+                cout << "Enter Student's Name: ";
+                cin >> name >> endl;
+                adrMahasiswa P = searchMahasiswa(L, name);
+
+                if (P != nullptr) {
+                    cout << "Student has found" << endl;
+                    cout << "Nama: " << info(P).nama << endl;
+                    cout << "Kelas: " << info(P).kelas << endl;
+                    cout << "Angkatan: " << info(P).angkatan << endl;
+                    cout << "Jurusan: " << info(P).jurusan << endl;
+                    cout << "Gender: " << info(P).gender << endl;
+                } else {
+                    cout << "No student has found" << endl;
+                }
                 break;
             case 6:
                 showAll(L);
                 break;
             case 7:
-                searchTugas(L, Q);
+                string name;
+                cout << "Enter Assignment's Name: ";
+                cin >> name >> endl;
+                adrTugas P = searchTugas(L, name);
+
+                if (P != nullptr) {
+                    cout << "Assignment has found" << endl;
+                    cout << "Nama: " << info(P).nama << endl;
+                    cout << "Matkul: " << info(P).matkul << endl;
+                    cout << "Deadline: " << info(P).deadline << endl;
+                    cout << "Kode Matkul: " << info(P).kodeMatkul << endl;
+                } else {
+                    cout << "No assignment has found" << endl;
+                }
                 break;
             case 8:
+                string name;
+                cout << "Enter Assignment's Name: ";
+                cin >> name >> endl;
+                adrTugas P = searchTugas(L, name);
+
                 deleteTugas(L, Q, P);
                 break;
             case 9:
+                string name;
+                cout << "Enter Student's Name: ";
+                cin >> name >> endl;
+                adrMahasiswa P = searchMahasiswa(L, name);
+
                 countTugas(L, P);
                 break;
             case 0:

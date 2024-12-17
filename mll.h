@@ -15,7 +15,7 @@ struct mahasiswa{
     int angkatan;
 };
 struct tugas{
-    string matkul, deadline, kodeMatkul;
+    string nama, matkul, deadline, kodeMatkul;
 };
 struct elemMahasiswa {
     infotypeMhs info;
@@ -40,6 +40,6 @@ adrMahasiswa searchMahasiswa(ListMahasiswa L, string name); //4
 void addTugas(ListMahasiswa &L, adrTugas P, adrMahasiswa Q); //5
 //void connectTugas(ListMahasiswa &L, adrTugas P, adrMahasiswa Q); //6
 void showAll(ListMahasiswa L); //7
-void searchTugas(ListMahasiswa L, adrTugas P); //8
+adrTugas searchTugas(ListMahasiswa L, string name); //8
 void deleteTugas(ListMahasiswa &L, adrTugas P, adrMahasiswa Q); //9
 void countTugas(ListMahasiswa &L, adrMahasiswa P); //10

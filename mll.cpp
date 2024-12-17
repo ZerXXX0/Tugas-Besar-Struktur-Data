@@ -128,7 +128,7 @@ void showAll(ListMahasiswa L) {
     //7
 
 }
-void searchTugas(ListMahasiswa L, adrTugas P) {
+adrTugas searchTugas(ListMahasiswa L, string name) {
     //8
 
 }
