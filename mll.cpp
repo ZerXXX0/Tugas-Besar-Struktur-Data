@@ -38,7 +38,7 @@ void addMahasiswa(ListMahasiswa &L, adrMahasiswa P) {
         //insert last
         if (first(L) != nullptr) {
             adrMahasiswa Q = first(L);
-            for (nextMhs(Q) != nullptr) {
+            while (nextMhs(Q) != nullptr) {
                 Q = nextMhs(Q);
             }
             nextMhs(Q) = P;
@@ -55,7 +55,7 @@ void addMahasiswa(ListMahasiswa &L, adrMahasiswa P) {
             nextMhs(P) = nextMhs(prec);
             nextMhs(prec) = P;
         } else {
-            cout << "Cannot do operation, prec not found exception"
+            cout << "Cannot do operation, prec not found exception";
         }
     } else {
         cout << "Invalid choice" << endl;
@@ -173,7 +173,7 @@ void addTugas(ListMahasiswa &L, adrTugas P, adrMahasiswa Q) {
             nextTug(Q) = nextTug(prec);
             nextTug(prec) = P;
         } else {
-            cout << "Cannot do operation, prec not found exception"
+            cout << "Cannot do operation, prec not found exception";
         }
     } else {
         cout << "Invalid choice" << endl;
@@ -263,6 +263,6 @@ void countTugas(ListMahasiswa &L, adrMahasiswa P) {
             P = nextMhs(P);
         }
     }
-    return count;
+    cout << "Assignment from this student: " << count << endl;
 }
 //

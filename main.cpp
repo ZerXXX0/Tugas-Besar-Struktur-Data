@@ -45,57 +45,66 @@ int main()
 
         switch (choice) {
             case 1:
+                {
                 string nama, kelas, jurusan, gender;
                 int angkatan;
 
                 cout << "Enter name: ";
-                cin >> x.nama >> endl;
+                cin >> x.nama;
                 cout << "Enter class: ";
-                cin >> x.kelas >> endl;
+                cin >> x.kelas;
                 cout << "Enter jurusan: ";
-                cin >> x.jurusan >> endl;
+                cin >> x.jurusan;
                 cout << "Enter angkatan: ";
-                cin >> x.angkatan >> endl;
+                cin >> x.angkatan;
                 cout << "Enter gender: ";
-                cin >> x.gender >> endl;
+                cin >> x.gender;
 
                 P = createElemenMahasiswa(x);
                 addMahasiswa(L, P);
                 break;
+                }
             case 2:
+                {
                 string name;
                 cout << "Enter Student's Name: ";
-                cin >> name >> endl;
+                cin >> name;
                 adrMahasiswa P = searchMahasiswa(L, name);
 
                 string matkul, deadline, kodeMatkul;
                 cout << "Enter subject name: ";
-                cin >> y.matkul >> endl;
+                cin >> y.matkul;
                 cout << "Enter subject code: ";
-                cin >> y.kodeMatkul >> endl;
+                cin >> y.kodeMatkul;
                 cout << "Enter deadline: ";
-                cin >> y.deadline >> endl;
+                cin >> y.deadline;
 
                 Q = createElemenTugas(y);
                 addTugas(L, Q, P);
                 break;
+                }
             case 3:
+                {
                 string name;
                 cout << "Enter Student's Name: ";
-                cin >> name >> endl;
+                cin >> name;
                 adrMahasiswa P = searchMahasiswa(L, name);
 
                 deleteMahasiswa(L, P);
 
                 cout << "Student is deleted";
                 break;
+                }
             case 4:
+                {
                 showMahasiswa(L);
                 break;
+                }
             case 5:
+                {
                 string name;
                 cout << "Enter Student's Name: ";
-                cin >> name >> endl;
+                cin >> name;
                 adrMahasiswa P = searchMahasiswa(L, name);
 
                 if (P != nullptr) {
@@ -109,13 +118,17 @@ int main()
                     cout << "No student has found" << endl;
                 }
                 break;
+                }
             case 6:
+                {
                 showAll(L);
                 break;
+                }
             case 7:
+                {
                 string name;
                 cout << "Enter Assignment's Name: ";
-                cin >> name >> endl;
+                cin >> name;
                 adrTugas P = searchTugas(L, name);
 
                 if (P != nullptr) {
@@ -128,29 +141,40 @@ int main()
                     cout << "No assignment has found" << endl;
                 }
                 break;
+                }
             case 8:
-                string name;
-                cout << "Enter Assignment's Name: ";
-                cin >> name >> endl;
-                adrTugas P = searchTugas(L, name);
-
-                deleteTugas(L, Q, P);
-                break;
-            case 9:
+                {
                 string name;
                 cout << "Enter Student's Name: ";
-                cin >> name >> endl;
+                cin >> name;
+                adrMahasiswa Q = searchMahasiswa(L, name);
+                cout << "Enter Assignment's Name: ";
+                cin >> name;
+                adrTugas P = searchTugas(L, name);
+
+                deleteTugas(L, P, Q);
+                break;
+                }
+            case 9:
+                {
+                string name;
+                cout << "Enter Student's Name: ";
+                cin >> name;
                 adrMahasiswa P = searchMahasiswa(L, name);
 
                 countTugas(L, P);
                 break;
+                }
             case 0:
-                cout << "Exiting the program. Goodbye! Tschuess! Arrivederci! Au Revoir! Adios!\n";
+                {
+                cout << "Exiting the program. Goodbye! Tschuess! Arrivederci! Au Revoir! Adios! Ma'a Salaamah!\n";
                 break;
+                }
             default:
+                {
                 cout << "Invalid choice. Please enter a number between 0 and 9.\n";
+                }
         }
     } while (choice != 0);
     return 0;
 }
-// test masuk javier

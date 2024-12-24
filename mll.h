@@ -1,6 +1,6 @@
 #include <iostream>
 #define info(P) P->info
-#define nextMhs(P) P->nextMhs
+#define nextMhs(Q) Q->nextMhs
 #define first(L) L.first
 #define nextTug(P) P->nextTug
 
