@@ -23,6 +23,7 @@ void addMahasiswa(ListMahasiswa &L, adrMahasiswa P) {
     cout << "Choose insert: " << endl;
     cout << "1. Insert first" << endl;
     cout << "2. Insert last" << endl;
+    cout << "3. Insert after" << endl;
     int input;
     cin >> input;
     if (input == 1) {
@@ -43,6 +44,18 @@ void addMahasiswa(ListMahasiswa &L, adrMahasiswa P) {
             nextMhs(Q) = P;
         } else {
             first(L) = P;
+        }
+    } else if (input == 3) {
+        cout << "Masukkan Nilai Prec(nama mahasiswa yang menjadi patokan): " << endl;
+        string input2;
+        cin >> input2;
+
+        adrMahasiswa prec = searchMahasiswa(L, input2);
+        if (prec != nullptr) {
+            nextMhs(P) = nextMhs(prec);
+            nextMhs(prec) = P;
+        } else {
+            cout << "Cannot do operation, prec not found exception"
         }
     } else {
         cout << "Invalid choice" << endl;
@@ -107,6 +120,7 @@ void addTugas(ListMahasiswa &L, adrTugas P, adrMahasiswa Q) {
     //Whichever used, they be same
     //For efficiency shit, just use ins first
     //insert first
+
     if (first(L) != nullptr){
         nextMhs(P) = nextTug(Q);
         nextTug(Q) = P;
@@ -119,6 +133,51 @@ void addTugas(ListMahasiswa &L, adrTugas P, adrMahasiswa Q) {
         R = nextMhs(R);
     }
     nextMhs(R) = P;
+
+
+    // Correction
+    // Supposed to be insert in child, not parent
+    cout << "Choose insert: " << endl;
+    cout << "1. Insert first" << endl;
+    cout << "2. Insert last" << endl;
+    cout << "3. Insert after" << endl;
+    int input;
+    cin >> input;
+    if (input == 1) {
+        //insert first
+        if (first(L) != nullptr){
+            if (nextTug(P) != nullptr) {
+                nextTug(P) = nextTug(Q);
+                nextTug(Q) = P;
+            } else {
+                nextTug(Q) = P;
+            }
+        } else {
+            cout << "List is empty" << endl;
+        }
+    } else if (input == 2) {
+       //insert last
+        adrTugas R= nextTug(Q);
+        while(nextTug(R)!=nullptr) {
+            R = nextTug(R);
+        }
+        nextTug(R) = P;
+    } else if (input == 3) {
+        //insert after
+        cout << "Masukkan Nilai Prec(nama tugas yang menjadi patokan): " << endl;
+        string input2;
+        cin >> input2;
+
+        adrTugas prec = searchTugas(L, input2);
+        if (prec != nullptr) {
+            nextTug(Q) = nextTug(prec);
+            nextTug(prec) = P;
+        } else {
+            cout << "Cannot do operation, prec not found exception"
+        }
+    } else {
+        cout << "Invalid choice" << endl;
+    }
 }
 //void connectTugas(ListMahasiswa &L, adrTugas P, adrMahasiswa Q) {
 //    //6
@@ -126,18 +185,84 @@ void addTugas(ListMahasiswa &L, adrTugas P, adrMahasiswa Q) {
 //}
 void showAll(ListMahasiswa L) {
     //7
-
+    if (first(L) != nullptr) {
+        adrMahasiswa P = first(L);
+        while (P != nullptr) {
+            cout << "Nama: " << info(P).nama << endl;
+            cout << "Kelas: " << info(P).kelas << endl;
+            cout << "Angkatan: " << info(P).angkatan << endl;
+            cout << "Jurusan: " << info(P).jurusan << endl;
+            cout << "Gender: " << info(P).gender << endl;
+            cout << "Tugas: " << endl;
+            adrTugas Q = nextTug(P);
+            while (Q != nullptr) {
+                cout << "   Nama: " << info(Q).nama << endl;
+                cout << "   Matkul: " << info(Q).matkul << endl;
+                cout << "   Kode Matkul: " << info(Q).kodeMatkul << endl;
+                cout << "   Deadline: " << info(Q).deadline << endl;
+                Q = nextTug(Q);
+            }
+            P = nextMhs(P);
+        }
+    }
 }
 adrTugas searchTugas(ListMahasiswa L, string name) {
     //8
-
+    adrTugas found;
+    if (first(L) != nullptr) {
+        adrMahasiswa P = first(L);
+        while (P != nullptr) {
+            adrTugas Q = nextTug(P);
+            while (Q != nullptr) {
+                if (info(Q).nama == name) {
+                    found = Q;
+                }
+                Q = nextTug(Q);
+            }
+            P = nextMhs(P);
+        }
+    }
+    return found;
 }
 void deleteTugas(ListMahasiswa &L, adrTugas P, adrMahasiswa Q) {
     //9
-
+    adrMahasiswa R = first(L);
+    if (R!=nullptr) {
+        while (R!=nullptr) {
+            adrTugas S = nextTug(R);
+            while (S!=nullptr) {
+                if (S == P) {
+                    nextTug(R) = nextTug(nextTug(S));
+                    S = nullptr;
+                    break;
+                } else if (nextTug(S) == P) {
+                    //Made it myself
+                    nextTug(S) = nextTug(nextTug(S));
+                    S = nextTug(S);
+                    S = nullptr;
+                    break;
+                 }
+                 S = nextTug(S);
+            }
+        }
+    } else {
+        cout << "No data in list" << endl;
+    }
 }
 void countTugas(ListMahasiswa &L, adrMahasiswa P) {
     //10
-
+    int count = 0;
+    if (first(L) != nullptr) {
+        adrMahasiswa P = first(L);
+        while (P != nullptr) {
+            adrTugas Q = nextTug(P);
+            while (Q != nullptr) {
+                count++;
+                Q = nextTug(Q);
+            }
+            P = nextMhs(P);
+        }
+    }
+    return count;
 }
 //
