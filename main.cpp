@@ -71,16 +71,23 @@ int main()
                 cin >> name;
                 adrMahasiswa P = searchMahasiswa(L, name);
 
-                string matkul, deadline, kodeMatkul;
-                cout << "Enter subject name: ";
-                cin >> y.matkul;
-                cout << "Enter subject code: ";
-                cin >> y.kodeMatkul;
-                cout << "Enter deadline: ";
-                cin >> y.deadline;
+                if (P != nullptr) {
+                    string name, matkul, deadline, kodeMatkul;
+                    cout << "Enter assignment name: ";
+                    cin >> y.name;
+                    cout << "Enter subject: ";
+                    cin >> y.matkul;
+                    cout << "Enter subject code: ";
+                    cin >> y.kodeMatkul;
+                    cout << "Enter deadline: ";
+                    cin >> y.deadline;
 
-                Q = createElemenTugas(y);
-                addTugas(L, Q, P);
+                    Q = createElemenTugas(y);
+                    addTugas(L, Q, P);
+                } else {
+                    cout << "Not found";
+                }
+
                 break;
                 }
             case 3:
@@ -90,9 +97,12 @@ int main()
                 cin >> name;
                 adrMahasiswa P = searchMahasiswa(L, name);
 
-                deleteMahasiswa(L, P);
-
-                cout << "Student is deleted";
+                if (P != nullptr) {
+                    deleteMahasiswa(L, P);
+                    cout << "Student is deleted";
+                } else {
+                    cout << "Not found";
+                }
                 break;
                 }
             case 4:
@@ -150,11 +160,20 @@ int main()
                 cout << "Enter Student's Name: ";
                 cin >> name;
                 adrMahasiswa Q = searchMahasiswa(L, name);
-                cout << "Enter Assignment's Name: ";
-                cin >> name;
-                adrTugas P = searchTugas(L, name);
 
-                deleteTugas(L, P, Q);
+                if (Q != nullptr) {
+                    cout << "Enter Assignment's Name: ";
+                    cin >> name;
+                    adrTugas P = searchTugas(L, name);
+
+                    if (P!=nullptr) {
+                        deleteTugas(L, P, Q);
+                    } else {
+                        cout << "Not found";
+                    }
+                } else {
+                    cout << "Not found";
+                }
                 break;
                 }
             case 9:
@@ -164,7 +183,11 @@ int main()
                 cin >> name;
                 adrMahasiswa P = searchMahasiswa(L, name);
 
-                countTugas(L, P);
+                if (P != nullptr) {
+                    countTugas(L, P);
+                } else {
+                    cout << "Not found";
+                }
                 break;
                 }
             case 0:

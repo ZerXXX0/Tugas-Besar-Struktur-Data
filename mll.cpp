@@ -166,7 +166,6 @@ void addTugas(ListMahasiswa &L, adrTugas P, adrMahasiswa Q) {
        } else {
             nextTug(P) = P;
        }
-
     } else if (input == 3) {
         //insert after
         cout << "Masukkan Nilai Prec(nama tugas yang menjadi patokan): " << endl;
