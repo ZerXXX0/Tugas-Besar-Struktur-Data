@@ -1,8 +1,12 @@
 # depslib dependency file v1.0
-1735008989 source:e:\ghozy\tel-u\3. semester\strukdat\tubes\tugas-besar-struktur-data\main.cpp
+1735185042 source:e:\ghozy\tel-u\3. semester\strukdat\tubes\tugas-besar-struktur-data\main.cpp
 	<iostream>
 	"mll.h"
 
-1735009029 e:\ghozy\tel-u\3. semester\strukdat\tubes\tugas-besar-struktur-data\mll.h
+1735184706 e:\ghozy\tel-u\3. semester\strukdat\tubes\tugas-besar-struktur-data\mll.h
 	<iostream>
+
+1735184798 source:e:\ghozy\tel-u\3. semester\strukdat\tubes\tugas-besar-struktur-data\mll.cpp
+	<iostream>
+	"mll.h"
 

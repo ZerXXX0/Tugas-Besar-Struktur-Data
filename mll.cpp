@@ -120,7 +120,7 @@ void addTugas(ListMahasiswa &L, adrTugas P, adrMahasiswa Q) {
     //Whichever used, they be same
     //For efficiency shit, just use ins first
     //insert first
-
+    /*
     if (first(L) != nullptr){
         nextMhs(P) = nextTug(Q);
         nextTug(Q) = P;
@@ -133,7 +133,7 @@ void addTugas(ListMahasiswa &L, adrTugas P, adrMahasiswa Q) {
         R = nextMhs(R);
     }
     nextMhs(R) = P;
-
+    */
 
     // Correction
     // Supposed to be insert in child, not parent
@@ -157,11 +157,16 @@ void addTugas(ListMahasiswa &L, adrTugas P, adrMahasiswa Q) {
         }
     } else if (input == 2) {
        //insert last
-        adrTugas R= nextTug(Q);
-        while(nextTug(R)!=nullptr) {
-            R = nextTug(R);
-        }
-        nextTug(R) = P;
+       if (nextTug(Q) != nullptr) {
+            adrTugas R = nextTug(Q);
+            while(nextTug(R)!= nullptr) {
+                R = nextTug(R);
+            }
+            nextTug(R) = P;
+       } else {
+            nextTug(P) = P;
+       }
+
     } else if (input == 3) {
         //insert after
         cout << "Masukkan Nilai Prec(nama tugas yang menjadi patokan): " << endl;
@@ -216,6 +221,7 @@ adrTugas searchTugas(ListMahasiswa L, string name) {
             while (Q != nullptr) {
                 if (info(Q).nama == name) {
                     found = Q;
+                    break;
                 }
                 Q = nextTug(Q);
             }
@@ -253,14 +259,10 @@ void countTugas(ListMahasiswa &L, adrMahasiswa P) {
     //10
     int count = 0;
     if (first(L) != nullptr) {
-        adrMahasiswa P = first(L);
-        while (P != nullptr) {
-            adrTugas Q = nextTug(P);
-            while (Q != nullptr) {
-                count++;
-                Q = nextTug(Q);
-            }
-            P = nextMhs(P);
+        adrTugas Q = nextTug(P);
+        while (Q != nullptr) {
+            count++;
+            Q = nextTug(Q);
         }
     }
     cout << "Assignment from this student: " << count << endl;

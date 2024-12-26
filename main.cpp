@@ -40,7 +40,7 @@ int main()
         cout << "9. Count Assignment\n";
         cout << "0. Exit\n";
         cout << "==============================\n";
-        cout << "Enter your choice (1-6): ";
+        cout << "Enter your choice (0-9): ";
         cin >> choice;
 
         switch (choice) {
@@ -98,6 +98,7 @@ int main()
             case 4:
                 {
                 showMahasiswa(L);
+                cout << endl;
                 break;
                 }
             case 5:
@@ -122,6 +123,7 @@ int main()
             case 6:
                 {
                 showAll(L);
+                cout << endl;
                 break;
                 }
             case 7:
@@ -167,7 +169,8 @@ int main()
                 }
             case 0:
                 {
-                cout << "Exiting the program. Goodbye! Tschuess! Arrivederci! Au Revoir! Adios! Ma'a Salaamah!\n";
+                cout << "Exiting the program. Goodbye! Tschuess! Arrivederci! Au Revoir! Adios! Sayonara!" << endl;
+                cout << "Wir wuenschen Ihnen einen schoenen Tag!";
                 break;
                 }
             default:

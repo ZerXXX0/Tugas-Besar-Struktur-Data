@@ -1,9 +1,8 @@
 #include <iostream>
 #define info(P) P->info
-#define nextMhs(Q) Q->nextMhs
 #define first(L) L.first
 #define nextTug(P) P->nextTug
-
+#define nextMhs(Q) Q->nextMhs
 using namespace std;
 
 typedef struct elemMahasiswa *adrMahasiswa;
